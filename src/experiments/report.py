@@ -215,7 +215,9 @@ def _metric_split_note(collected: list[dict]) -> str:
     if best_rmse["algorithm"] == best_mae["algorithm"]:
         return (
             f"\n**{best_rmse['algorithm']}** leads on both RMSE "
-            f"({best_rmse['rmse']:.3f}) and MAE ({best_mae['mae']:.3f}).\n"
+            f"({best_rmse['rmse']:.3f}) and MAE ({best_mae['mae']:.3f}). Leading the table is not "
+            "promotion: a rung is the submission only once the paired day-block bootstrap puts "
+            "its primary-fold 90% interval entirely below zero.\n"
         )
     return (
         f"\n**The two metrics disagree.** `{best_rmse['algorithm']}` has the lowest RMSE "
@@ -284,15 +286,14 @@ the PM10 anchor is reported as failing rather than quietly dropped.
 ## How blanks are treated
 
 Not uniformly, and deliberately so ([ADR-0003](../docs/adr/0003-per-rung-imputation.md)).
-Ridge and random forest cannot see a missing value, so they receive a station-by-hour-of-day
-median fill fitted on training rows alone. LightGBM and histogram gradient boosting handle
-blanks natively and are fed the frame intact, because the pattern of absence is itself
-information.
+Ridge cannot see a missing value, so it receives a station-by-hour-of-day median fill fitted
+on training rows alone. LightGBM handles blanks natively and is fed the frame intact, because
+the pattern of absence is itself information.
 
 ## Reproduce
 
 ```bash
-.venv/bin/python -m src.cache            # data/train.parquet and data/test.parquet
+.venv/bin/python -m src.cache            # data/processed/train.parquet and test.parquet
 .venv/bin/python -m src.experiments all  # every test, then this table
 ```
 """
