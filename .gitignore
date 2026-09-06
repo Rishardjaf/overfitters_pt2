@@ -1,3 +1,11 @@
+# Competition data — never committed (size, and the rules on redistribution).
+# A frame derived from the competition CSVs is still the competition data, so none
+# of these rules is scoped to data/: each has to catch a file written to the repo
+# root by a notebook just as readily as one under data/.
+*.csv
+*.parquet
+*.zip
+
 __pycache__/
 *.py[cod]
 .venv/
