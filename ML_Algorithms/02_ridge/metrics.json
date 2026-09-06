@@ -1,0 +1,46 @@
+{
+  "test": "02_ridge",
+  "algorithm": "ridge",
+  "label": "TEST 02",
+  "is_baseline": false,
+  "summary": "Regularised linear regression on the median-filled frame. How much of the signal is linear?",
+  "run_at": "2026-09-06T17:35:14",
+  "primary_fold": "2015-09_to_2016-03",
+  "rmse": 34.3962,
+  "mae": 20.2607,
+  "baseline_rmse": 40.664,
+  "baseline_mae": 24.6504,
+  "rmse_vs_baseline_pct": 15.414,
+  "beats_baseline": true,
+  "fit_seconds": 4.7,
+  "total_seconds": 7.2,
+  "submission_rows": 51063,
+  "gap_filled_predictions": 0,
+  "warnings": [],
+  "folds": [
+    {
+      "fold": "2015-09_to_2016-03",
+      "train_rows": 257927,
+      "holdout_rows": 51349,
+      "rmse": 34.396216321135135,
+      "mae": 20.260669068656462,
+      "baseline_rmse": 40.66400044921988,
+      "baseline_mae": 24.650388910028447,
+      "rmse_vs_baseline_pct": 15.414,
+      "beats_baseline": true,
+      "fit_seconds": 4.7
+    },
+    {
+      "fold": "2014-09_to_2015-03",
+      "train_rows": 155190,
+      "holdout_rows": 50799,
+      "rmse": 34.36716486509198,
+      "mae": 22.0654690262184,
+      "baseline_rmse": 43.42544738273879,
+      "baseline_mae": 25.504334598090544,
+      "rmse_vs_baseline_pct": 20.859,
+      "beats_baseline": true,
+      "fit_seconds": 0.5
+    }
+  ]
+}

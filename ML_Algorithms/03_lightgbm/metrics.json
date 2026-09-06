@@ -1,0 +1,46 @@
+{
+  "test": "03_lightgbm",
+  "algorithm": "lightgbm",
+  "label": "TEST 03",
+  "is_baseline": false,
+  "summary": "LightGBM, blanks left intact so absence itself is learnable. The strongest rung that predicts the concentration itself.",
+  "run_at": "2026-09-06T17:37:01",
+  "primary_fold": "2015-09_to_2016-03",
+  "rmse": 29.6136,
+  "mae": 14.7834,
+  "baseline_rmse": 40.664,
+  "baseline_mae": 24.6504,
+  "rmse_vs_baseline_pct": 27.175,
+  "beats_baseline": true,
+  "fit_seconds": 31.9,
+  "total_seconds": 105.9,
+  "submission_rows": 51063,
+  "gap_filled_predictions": 0,
+  "warnings": [],
+  "folds": [
+    {
+      "fold": "2015-09_to_2016-03",
+      "train_rows": 257927,
+      "holdout_rows": 51349,
+      "rmse": 29.61360353836552,
+      "mae": 14.7833642061726,
+      "baseline_rmse": 40.66400044921988,
+      "baseline_mae": 24.650388910028447,
+      "rmse_vs_baseline_pct": 27.175,
+      "beats_baseline": true,
+      "fit_seconds": 31.9
+    },
+    {
+      "fold": "2014-09_to_2015-03",
+      "train_rows": 155190,
+      "holdout_rows": 50799,
+      "rmse": 27.499862740778525,
+      "mae": 16.78098569618548,
+      "baseline_rmse": 43.42544738273879,
+      "baseline_mae": 25.504334598090544,
+      "rmse_vs_baseline_pct": 36.673,
+      "beats_baseline": true,
+      "fit_seconds": 24.6
+    }
+  ]
+}

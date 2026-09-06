@@ -1,0 +1,46 @@
+{
+  "test": "04_delta_lightgbm",
+  "algorithm": "delta_lightgbm",
+  "label": "TEST 04",
+  "is_baseline": false,
+  "summary": "LightGBM on the deviation from the PM10 anchor. Removes the tree extrapolation ceiling that decides the tail.",
+  "run_at": "2026-09-06T17:40:23",
+  "primary_fold": "2015-09_to_2016-03",
+  "rmse": 29.1845,
+  "mae": 14.6486,
+  "baseline_rmse": 40.664,
+  "baseline_mae": 24.6504,
+  "rmse_vs_baseline_pct": 28.23,
+  "beats_baseline": true,
+  "fit_seconds": 33.8,
+  "total_seconds": 92.4,
+  "submission_rows": 51063,
+  "gap_filled_predictions": 0,
+  "warnings": [],
+  "folds": [
+    {
+      "fold": "2015-09_to_2016-03",
+      "train_rows": 257927,
+      "holdout_rows": 51349,
+      "rmse": 29.18447612641096,
+      "mae": 14.64855542849137,
+      "baseline_rmse": 40.66400044921988,
+      "baseline_mae": 24.650388910028447,
+      "rmse_vs_baseline_pct": 28.23,
+      "beats_baseline": true,
+      "fit_seconds": 33.8
+    },
+    {
+      "fold": "2014-09_to_2015-03",
+      "train_rows": 155190,
+      "holdout_rows": 50799,
+      "rmse": 26.95496375738171,
+      "mae": 16.77294825531945,
+      "baseline_rmse": 43.42544738273879,
+      "baseline_mae": 25.504334598090544,
+      "rmse_vs_baseline_pct": 37.928,
+      "beats_baseline": true,
+      "fit_seconds": 23.9
+    }
+  ]
+}

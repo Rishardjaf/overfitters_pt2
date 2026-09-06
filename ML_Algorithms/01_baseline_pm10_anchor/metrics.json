@@ -1,0 +1,46 @@
+{
+  "test": "01_baseline_pm10_anchor",
+  "algorithm": "pm10_anchor",
+  "label": "BASELINE TEST",
+  "is_baseline": true,
+  "summary": "Next-hour PM2.5 as a fitted line through PM10 at the observation hour. The bar every rung is measured against.",
+  "run_at": "2026-09-06T17:35:06",
+  "primary_fold": "2015-09_to_2016-03",
+  "rmse": 40.664,
+  "mae": 24.6504,
+  "baseline_rmse": 40.664,
+  "baseline_mae": 24.6504,
+  "rmse_vs_baseline_pct": 0.0,
+  "beats_baseline": false,
+  "fit_seconds": 0.0,
+  "total_seconds": 0.7,
+  "submission_rows": 51063,
+  "gap_filled_predictions": 0,
+  "warnings": [],
+  "folds": [
+    {
+      "fold": "2015-09_to_2016-03",
+      "train_rows": 257927,
+      "holdout_rows": 51349,
+      "rmse": 40.66400044921988,
+      "mae": 24.650388910028447,
+      "baseline_rmse": 40.66400044921988,
+      "baseline_mae": 24.650388910028447,
+      "rmse_vs_baseline_pct": 0.0,
+      "beats_baseline": false,
+      "fit_seconds": 0.0
+    },
+    {
+      "fold": "2014-09_to_2015-03",
+      "train_rows": 155190,
+      "holdout_rows": 50799,
+      "rmse": 43.42544738273879,
+      "mae": 25.504334598090544,
+      "baseline_rmse": 43.42544738273879,
+      "baseline_mae": 25.504334598090544,
+      "rmse_vs_baseline_pct": 0.0,
+      "beats_baseline": false,
+      "fit_seconds": 0.0
+    }
+  ]
+}
