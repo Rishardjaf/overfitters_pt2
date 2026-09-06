@@ -1,0 +1,17 @@
+205,764 OOF rows shared by ['lgbm_f9_deep_ratio', 'xgb_f9_ratio_mcw', 'cat_f9_ratio']
+
+  lgbm_f9_deep_ratio       f0=24.896  f1=19.800  f2=26.988  f3=18.954   headline=25.942
+  xgb_f9_ratio_mcw         f0=25.105  f1=20.625  f2=26.872  f3=19.064   headline=25.989
+  cat_f9_ratio             f0=25.670  f1=21.809  f2=27.600  f3=19.163   headline=26.635
+
+residual correlation (heating folds):
+                    lgbm_f9_deep_ratio  xgb_f9_ratio_mcw  cat_f9_ratio
+lgbm_f9_deep_ratio               1.000             0.969         0.932
+xgb_f9_ratio_mcw                 0.969             1.000         0.923
+cat_f9_ratio                     0.932             0.923         1.000
+
+NNLS blend, fit on one heating fold -> score on the other:
+  fit f0 -> f2: blend 26.753 vs best single 26.872   weights {'lgbm_f9_deep_ratio': np.float64(0.448), 'xgb_f9_ratio_mcw': np.float64(0.358), 'cat_f9_ratio': np.float64(0.194)}
+  fit f2 -> f0: blend 24.635 vs best single 24.896   weights {'lgbm_f9_deep_ratio': np.float64(0.182), 'xgb_f9_ratio_mcw': np.float64(0.358), 'cat_f9_ratio': np.float64(0.46)}
+  equal-weight f0: 24.556
+  equal-weight f2: 26.769
