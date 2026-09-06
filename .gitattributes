@@ -1,0 +1,2 @@
+# Preserve the exact released dataset bytes on every platform.
+data/raw/*.csv -text
