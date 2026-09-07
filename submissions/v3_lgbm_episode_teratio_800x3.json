@@ -1,0 +1,27 @@
+{
+ "name": "v3_lgbm_episode_teratio_800x3",
+ "models": [
+  "lightgbm:800"
+ ],
+ "blend_weights": [
+  1.0
+ ],
+ "features": "f9_deep",
+ "n_features": 298,
+ "target": "ratio",
+ "seeds": [
+  42,
+  1,
+  2
+ ],
+ "sample_weights": "none",
+ "params": {},
+ "n_rows": 51063,
+ "pred_mean": 91.8252030192636,
+ "train_target_mean": 78.04398345947266,
+ "pred_median": 59.87730441814792,
+ "pred_p99": 436.3987408337846,
+ "pred_max": 724.4179859225022,
+ "median_pred_over_pm10": 0.8152273817733791,
+ "corr_pred_pm10": 0.9728034333615316
+}

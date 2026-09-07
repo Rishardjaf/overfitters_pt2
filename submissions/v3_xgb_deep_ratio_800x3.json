@@ -1,0 +1,32 @@
+{
+ "name": "v3_xgb_deep_ratio_800x3",
+ "models": [
+  "xgboost:800"
+ ],
+ "blend_weights": [
+  1.0
+ ],
+ "features": "f9_deep",
+ "n_features": 284,
+ "target": "ratio",
+ "seeds": [
+  42,
+  1,
+  2
+ ],
+ "sample_weights": "none",
+ "params": {
+  "xgboost": {
+   "min_child_weight": 1000000,
+   "max_depth": 7
+  }
+ },
+ "n_rows": 51063,
+ "pred_mean": 92.55660375853152,
+ "train_target_mean": 78.04398345947266,
+ "pred_median": 60.24409532546997,
+ "pred_p99": 440.5070177268981,
+ "pred_max": 773.361769258976,
+ "median_pred_over_pm10": 0.8240706622600555,
+ "corr_pred_pm10": 0.9732914652463679
+}

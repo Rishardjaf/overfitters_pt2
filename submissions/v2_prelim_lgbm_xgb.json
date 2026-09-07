@@ -1,0 +1,28 @@
+{
+ "name": "v2_prelim_lgbm_xgb",
+ "models": [
+  "lightgbm:300",
+  "xgboost:230"
+ ],
+ "weights": [
+  0.5,
+  0.5
+ ],
+ "features": "lean_nb",
+ "n_features": 169,
+ "rounds": 500,
+ "params": {},
+ "fallback": "F",
+ "seeds": [
+  42
+ ],
+ "sample_weights": "both",
+ "n_rows": 51063,
+ "n_fallback_rows": 371,
+ "pred_mean": 92.2441331735184,
+ "anchor_mean": 92.32131302769668,
+ "mean_delta_hat_anchor_present": 0.03648844165144063,
+ "rmse_pred_vs_anchor_anchor_present": 12.787104265411541,
+ "pred_max": 752.46318670415,
+ "pred_p99": 443.63047962671124
+}

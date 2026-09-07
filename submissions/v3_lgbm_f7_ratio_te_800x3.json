@@ -1,0 +1,27 @@
+{
+ "name": "v3_lgbm_f7_ratio_te_800x3",
+ "models": [
+  "lightgbm:800"
+ ],
+ "blend_weights": [
+  1.0
+ ],
+ "features": "f7_neighbors",
+ "n_features": 266,
+ "target": "ratio",
+ "seeds": [
+  42,
+  1,
+  2
+ ],
+ "sample_weights": "none",
+ "params": {},
+ "n_rows": 51063,
+ "pred_mean": 92.40067039671546,
+ "train_target_mean": 78.04398345947266,
+ "pred_median": 60.58843296524112,
+ "pred_p99": 438.40666321092147,
+ "pred_max": 791.8203077007211,
+ "median_pred_over_pm10": 0.8193243211403356,
+ "corr_pred_pm10": 0.972469427289362
+}

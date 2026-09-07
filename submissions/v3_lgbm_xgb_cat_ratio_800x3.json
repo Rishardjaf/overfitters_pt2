@@ -1,0 +1,36 @@
+{
+ "name": "v3_lgbm_xgb_cat_ratio_800x3",
+ "models": [
+  "lightgbm:800",
+  "xgboost:800",
+  "catboost:800"
+ ],
+ "blend_weights": [
+  0.333,
+  0.333,
+  0.333
+ ],
+ "features": "f9_deep",
+ "n_features": 284,
+ "target": "ratio",
+ "seeds": [
+  42,
+  1,
+  2
+ ],
+ "sample_weights": "none",
+ "params": {
+  "xgboost": {
+   "min_child_weight": 1000000,
+   "max_depth": 7
+  }
+ },
+ "n_rows": 51063,
+ "pred_mean": 92.51340930765349,
+ "train_target_mean": 78.04398345947266,
+ "pred_median": 60.54803868615238,
+ "pred_p99": 437.66602155626117,
+ "pred_max": 745.5885224035359,
+ "median_pred_over_pm10": 0.8207969936107108,
+ "corr_pred_pm10": 0.9746151564818781
+}

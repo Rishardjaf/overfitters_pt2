@@ -1,0 +1,33 @@
+# Baseline run: persistence and mean, scored through the real pipeline.
+# Its only job is to reproduce RMSE 19.67 / 77.78 end-to-end, proving the
+# data loading, fold construction, and metric code are all wired correctly
+# before any model is trained.
+
+name: baseline
+seed: 42
+
+data:
+  use_complete_grid: true      # reindex each station to a gap-free hourly index
+  wd_missing_as_category: true # blank wd is its own level, never imputed
+
+target:
+  column: PM2_5_next_hour
+  # 'raw'      predict the target directly
+  # 'residual' predict (target - current_PM2_5), add the anchor back at inference
+  # 'log1p'    predict log1p(target)  -- expected to hurt RMSE; test, don't assume
+  transform: raw
+
+features:
+  groups: []                   # baseline uses no engineered features
+
+model:
+  name: persistence            # also scores the mean baseline for reference
+
+validation:
+  scheme: expanding
+  headline: heating_season     # mean RMSE over folds 0 and 2
+  comparison_population: anchor_present
+  operational_population: all_real_rows
+  complete_persistence_fallback: loo_network_median_plus_station_train_offset
+  tail_threshold: 30
+  report_breakdowns: [station, month, hour, decile, rapid_fall, calm, rapid_rise, missing_anchor]

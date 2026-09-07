@@ -1,0 +1,27 @@
+{
+ "name": "v3_lgbm_deep_ratio_800x3",
+ "models": [
+  "lightgbm:800"
+ ],
+ "blend_weights": [
+  1.0
+ ],
+ "features": "f9_deep",
+ "n_features": 284,
+ "target": "ratio",
+ "seeds": [
+  42,
+  1,
+  2
+ ],
+ "sample_weights": "none",
+ "params": {},
+ "n_rows": 51063,
+ "pred_mean": 92.47457244201883,
+ "train_target_mean": 78.04398345947266,
+ "pred_median": 60.46523882375331,
+ "pred_p99": 437.8513039047784,
+ "pred_max": 810.9606874736631,
+ "median_pred_over_pm10": 0.8217358556990981,
+ "corr_pred_pm10": 0.9731749631321894
+}

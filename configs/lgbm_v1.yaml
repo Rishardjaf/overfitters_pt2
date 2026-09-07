@@ -1,0 +1,72 @@
+# First real model: LightGBM over lag, delta, and rolling features.
+# Success criterion is a clear win over persistence on the heating-season folds,
+# not merely a low average across all folds.
+
+name: lgbm_v1
+seed: 42
+
+data:
+  use_complete_grid: true
+  wd_missing_as_category: true
+
+target:
+  column: PM2_5_next_hour
+  transform: residual
+  fit_rows: anchor_present
+  prediction_lower_bound: 0.0
+  reconstruction:
+    anchor_present: add_prediction_to_current_PM2_5
+    anchor_missing: raw_level_model
+    fallback_config: configs/lgbm_v1_level.yaml
+
+features:
+  groups: [raw, lags, deltas, rolling, ratios, meteorology, calendar, network, missing]
+  lags: [1, 2, 3, 6, 12, 24]
+  lag_columns: [current_PM2_5, PM10, CO, NO2]
+  rolling_windows: [3, 6, 12, 24]
+  rolling_add_observation_counts: true
+  network_leave_one_station_out: true
+  network_add_level_aggregates: true
+  network_add_momentum_aggregates: true
+  network_add_availability_count: true
+
+model:
+  name: lightgbm
+  categorical_features: [station, wd]
+  params:
+    objective: regression        # L2 -- matches the competition metric
+    metric: rmse
+    learning_rate: 0.05
+    num_leaves: 127
+    min_data_in_leaf: 50
+    feature_fraction: 0.8
+    bagging_fraction: 0.8
+    bagging_freq: 1
+    lambda_l2: 1.0
+    n_estimators: 5000
+    deterministic: true
+    force_col_wise: true
+    bagging_seed: 42
+    feature_fraction_seed: 42
+    data_random_seed: 42
+    verbosity: -1
+
+training:
+  early_stopping_rounds: 200
+  early_stopping_via_callback: true
+  inner_validation: previous_matching_season
+  refit_outer_train_at_selected_round: true
+
+validation:
+  scheme: expanding
+  headline: heating_season
+  comparison_population: anchor_present
+  operational_population: all_real_rows
+  complete_persistence_fallback: loo_network_median_plus_station_train_offset
+  tail_threshold: 30
+  report_breakdowns: [station, month, hour, decile, rapid_fall, calm, rapid_rise, missing_anchor]
+  report_pooled_oof_rmse: true
+  uncertainty:
+    method: moving_block_bootstrap
+    block_hours: 168
+    paired_loss_difference: true

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Project artifacts — regenerable, keep out of git
+artifacts/**
+!artifacts/**/
+!.gitkeep
+reports/figures/
+*.pkl
+*.joblib
+*.txt.model
+
+# Keep submissions tracked (they are small and worth versioning),
+# but ignore scratch experiments
+submissions/scratch/
+
+# Tooling
+.ruff_cache/
+.pytest_cache/
+.DS_Store
+.env
